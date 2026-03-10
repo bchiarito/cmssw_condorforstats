@@ -1,0 +1,10 @@
+niter="100"
+#masses=(0)
+#masses=(0 7 72 79 104 111)
+#masses=(0 7 72 79)
+masses=(0 7 56 63)
+rrange=200
+sigstrs=(0.0 1.0 3.0 7.0 10.0)
+testfixes=(0 1 2)
+genfixes=(0 1 2)
+debug="-2" # -2, -1, 0 
