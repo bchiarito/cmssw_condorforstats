@@ -13,8 +13,8 @@ echo "Finished Run"
 pwd
 ls
 echo ""
-./drawlimits.py higgsCombineTest.AsymptoticLimits*.root
+./drawlimits.py higgsCombineTest.AsymptoticLimits*.root --sigtype $sigtype
 echo ""
 echo "Finished Draw"
 pwd
-ls *.pdf
+ls plots_limits

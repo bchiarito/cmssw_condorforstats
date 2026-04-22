@@ -6,6 +6,7 @@ echo ""
 pwd
 ls
 
+source setup_$1.sh
 echo "RUNBIAS.SH"
 bash +x runbias.sh
 echo ""
@@ -17,4 +18,4 @@ echo ""
 echo ""
 echo "Finished Draw"
 pwd
-ls plots
+ls plots_bias

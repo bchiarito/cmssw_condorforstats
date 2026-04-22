@@ -25,31 +25,21 @@ cd HiggsAnalysis/CombinedLimit
 cd 2prong/res/
 
 echo ""
-rm setup.sh
-cp ${_CONDOR_SCRATCH_DIR}/setup.sh .
+rm setup_$1.sh
+cp ${_CONDOR_SCRATCH_DIR}/setup_$1.sh .
+cp ${_CONDOR_SCRATCH_DIR}/execute_$1.sh .
+cp -r ${_CONDOR_SCRATCH_DIR}/input .
 ls
 echo ""
-ls input
+echo "input/:"
+ls -l input/*
 echo ""
-#echo "RUNBIAS.SH"
-#bash +x runbias.sh
+#source setup_$1.sh
+echo ""
 
-#echo ""
-#echo "Finished Run"
-#pwd
-#ls
-#echo ""
-
-#./drawbias.py fit*.root
-
-#echo ""
-#echo "Finished Draw"
-#pwd
-#ls plots
-
-if [ ${15} == "bias" ]; then
+if [ ${1} == "bias" ]; then
 . ./execute_bias.sh
-elif [ ${15} == "limits" ]; then
+elif [ ${1} == "limits" ]; then
 . ./execute_limits.sh
 fi
 
@@ -58,5 +48,5 @@ cd ${_CONDOR_SCRATCH_DIR}
 mkdir joboutput
 cd joboutput
 cp $WORK_DIR/*.root .
-cp $WORK_DIR/plots/biasfits.pdf .
-cp $WORK_DIR/plots/biasfits_summary.pdf .
+cp $WORK_DIR/plots_$1/* .
+cp $WORK_DIR/*.pdf .
