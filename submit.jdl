@@ -1,15 +1,14 @@
 executable = execute.sh
-arguments = $(TYPE)
+arguments = $(TYPE) $(Process)
 +JobFlavor = longlunch
 Notification = Never
 #x509userproxy = x509up_u756
-transfer_input_files = ../../cmssw_tarball.tgz, ../../setup_$(TYPE).sh, ../../execute_$(TYPE).sh, ../../input,
+transfer_input_files = ../../cmssw_tarball.tgz, setup/split_setup_$(TYPE)_$(Process).sh, ../../execute_$(TYPE).sh, ../../input,
 should_transfer_files = YES
 transfer_output_files = joboutput
 initialdir = $(Parent)/$(jobname)
-output = out_$(Cluster)_$(Process).txt
-error = out_$(Cluster)_$(Process).txt
+output = stdout/out_$(Cluster)_$(Process).txt
+error = stdout/out_$(Cluster)_$(Process).txt
 log = log_$(Cluster).txt
-max_materialize = 150
+max_materialize = 376
 
-queue

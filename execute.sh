@@ -26,7 +26,8 @@ cd 2prong/res/
 
 echo ""
 rm setup_$1.sh
-cp ${_CONDOR_SCRATCH_DIR}/setup_$1.sh .
+cp ${_CONDOR_SCRATCH_DIR}/split_setup_$1_$2.sh .
+mv split_setup_$1_$2.sh setup_$1.sh
 cp ${_CONDOR_SCRATCH_DIR}/execute_$1.sh .
 cp -r ${_CONDOR_SCRATCH_DIR}/input .
 ls
@@ -34,13 +35,19 @@ echo ""
 echo "input/:"
 ls -l input/*
 echo ""
-#source setup_$1.sh
+echo "Source setup:"
+source setup_$1.sh
+input="./input"
+./files.py
+echo "Masses:" ${masses[@]}
 echo ""
 
 if [ ${1} == "bias" ]; then
 . ./execute_bias.sh
 elif [ ${1} == "limits" ]; then
 . ./execute_limits.sh
+elif [ ${1} == "sig" ]; then
+. ./execute_sig.sh
 fi
 
 export WORK_DIR=$(pwd)
@@ -48,5 +55,5 @@ cd ${_CONDOR_SCRATCH_DIR}
 mkdir joboutput
 cd joboutput
 cp $WORK_DIR/*.root .
-cp $WORK_DIR/plots_$1/* .
-cp $WORK_DIR/*.pdf .
+#cp $WORK_DIR/plots_$1/* .
+#cp $WORK_DIR/*.pdf .
