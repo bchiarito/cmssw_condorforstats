@@ -10,5 +10,4 @@ initialdir = $(Parent)/$(jobname)
 output = stdout/out_$(Cluster)_$(Process).txt
 error = stdout/out_$(Cluster)_$(Process).txt
 log = log_$(Cluster).txt
-max_materialize = 376
-
+max_materialize = 150

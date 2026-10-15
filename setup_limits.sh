@@ -9,6 +9,7 @@ input="./input"
 #signal="signal_10percent_etaprime"
 #signal="signal_10percent_lowerphimass_eta"
 signal="signal_10percent_lowerphimass_etaprime"
+#signal="box_around_71_75kevents_eta"
 
 # first last npoints
 #wmasspoints=(0.5 4 11)
@@ -18,10 +19,15 @@ signal="signal_10percent_lowerphimass_etaprime"
 #wmasspoints=(2.0 3.0 9)
 #pmasspoints=(1000 1500 11)
 
-wmasspoints=(0.5 4 11)
-pmasspoints=(550 2925 20)
+# widths 0.35, 125
+#wmasspoints=(0.5 4 11)
+#pmasspoints=(550 2925 20)
 
-#masses=(0)
+# widths 0.15, 30
+wmasspoints=(0.5 3.95 24)
+pmasspoints=(550 2920 80)
+
+#masses=(633)
 masses=($(seq 0 $(( ${wmasspoints[2]} * ${pmasspoints[2]} - 1 ))))
 #masses=($(seq 0 285))
 

@@ -59,6 +59,8 @@ for (( i=0; i<njobs; i++ )); do
     fi
 done
 
+echo "Using a total of $njobs jobs."
+
 if [ "$njobs" -ne 1 ]; then
     read -p "Press [Enter] to continue or q to quit: " input
     if [[ "$input" == "q" ]]; then
